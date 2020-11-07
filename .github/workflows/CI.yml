@@ -15,4 +15,6 @@ jobs:
   Release:
         runs-on: ubuntu-latest
         steps:
+         - uses: actions/checkout@v2
          - run: ./tools/release
+         - uses: actions/upload-artifact@v2
