@@ -10,4 +10,9 @@ jobs:
      - run: ./autogen.sh
      - run: ./configure
      - run: make all
-     - run: python3 ./travis/nasm-t.py run
+     - run: python ./travis/nasm-t.py run
+
+  Release:
+        runs-on: ubuntu-latest
+        steps:
+         - run: ./tools/release
