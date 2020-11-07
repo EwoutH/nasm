@@ -1,0 +1,12 @@
+on: [push, pull]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    env:
+      TR_ARCH: local
+    steps:
+     - run: ./autogen.sh
+     - run: ./configure
+     - run: make all
+     - run: python3 ./travis/nasm-t.py run
