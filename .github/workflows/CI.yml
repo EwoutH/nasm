@@ -6,15 +6,15 @@ jobs:
     env:
       TR_ARCH: local
     steps:
-     - uses: actions/checkout@v2
-     - run: ./autogen.sh
-     - run: ./configure
-     - run: make all
-     - run: python ./travis/nasm-t.py run
+      - uses: actions/checkout@v2
+      - run: ./autogen.sh
+      - run: ./configure
+      - run: make all
+      - run: python ./travis/nasm-t.py run
 
   Release:
-        runs-on: ubuntu-latest
-        steps:
-         - uses: actions/checkout@v2
-         - run: ./tools/release
-         - uses: actions/upload-artifact@v2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./tools/release ./version
+      - uses: actions/upload-artifact@v2
