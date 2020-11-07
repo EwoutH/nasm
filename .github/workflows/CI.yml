@@ -6,6 +6,7 @@ jobs:
     env:
       TR_ARCH: local
     steps:
+     - uses: actions/checkout@v2
      - run: ./autogen.sh
      - run: ./configure
      - run: make all
