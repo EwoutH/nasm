@@ -1,0 +1,12 @@
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - run: autogen.sh
+    - run: sh configure
+    - run: make
+    - run: make strip
+    - run: make install
