@@ -4,11 +4,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-18.04]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
-    - run: autogen.sh
+    - run: sh autogen.sh
     - run: sh configure
     - run: make
     - run: make strip
