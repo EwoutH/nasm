@@ -13,4 +13,4 @@ jobs:
     - run: sh configure
     - run: make
     - run: make strip
-    - run: make install
+    - run: sudo make install
