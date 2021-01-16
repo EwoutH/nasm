@@ -12,6 +12,5 @@ jobs:
     - run: sh autogen.sh
     - run: sh configure
     - run: make
-    - run: make strip
     - run: sudo make install
     - run: nasm -v
