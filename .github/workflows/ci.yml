@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: sh autogen.sh
-    - run: sh configure
+    - run: ./autogen.sh
+    - run: ./configure
     - run: make all
     - run: nasm -v
     - run: python3 ./travis/nasm-t.py run
