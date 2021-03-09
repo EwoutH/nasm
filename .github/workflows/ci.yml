@@ -1,16 +1,20 @@
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: '0 6 * * 1'
 
 jobs:
   build:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - run: sh autogen.sh
     - run: sh configure
     - run: make all
-    - run: sudo make install
     - run: nasm -v
+    - run: python3 ./travis/nasm-t.py run
